@@ -24,8 +24,6 @@ top: 0;
 z-index: 1000;
 
 
-
-
 `; 
 
 export const Profile = styled(Link)`
@@ -53,11 +51,14 @@ flex-direction: row-reverse;
     color: ${({theme}) => theme.COLORS.GRAY_100 };
   
 }
-span:first-child {
+strong {
     font-size: 18px;
-    color: ${({theme}) => theme.COLORS.WHITE };
+    color: ${({theme}) => theme.COLORS.WHITE};
+  }
+
 }
-}
+
+
 `;
 
 export const Search = styled.div`
@@ -78,3 +79,10 @@ export const Brand  = styled.div`
   color: ${({theme})=> theme.COLORS.ROSE};
 
   `;
+
+export const Logout = styled.button `
+
+border: none;
+background: transparent;
+color: ${({theme}) => theme.COLORS.WHITE};
+`;

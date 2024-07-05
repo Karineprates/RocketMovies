@@ -7,9 +7,16 @@ import { Button } from '../../components/Button';
 import { Section } from '../../components/Section'
 import { ButtonText } from '../../components/ButtonText'
 import { Tag } from '../../components/Tag';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
 
 export function Details () {
+  const params = useParams();
+  const [data, setData] = useState(null)
+
   
+
   return (
     <Container>
 
@@ -17,7 +24,7 @@ export function Details () {
       <main>
         <Content>
 
-        <ButtonText Icon={FiArrowLeft} title="Voltar"/> 
+        <ButtonText to="/" Icon={FiArrowLeft} title="Voltar"/> 
         
         <div>
           <h1>Interestellar</h1> <Star><PiStarFill/><PiStarFill/><PiStarFill/><PiStarFill/><PiStarThin/></Star>
