@@ -9,7 +9,6 @@ export function Note({data, ...rest}) {
       <h1>{data.title}</h1>
       <Star><PiStarFill/><PiStarFill/><PiStarFill/><PiStarFill/><PiStarThin/></Star>
       <p>{data.description}</p>
-
       {
         data.tags &&
         <footer>

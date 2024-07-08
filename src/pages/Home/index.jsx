@@ -6,7 +6,7 @@ import { FiPlus } from 'react-icons/fi';
 import { useState, useEffect } from 'react';
 import { api } from '../../services/api';
 import { Input } from '../../components/Input';
-import { useNavigate } from 'react-router-dom';
+
 
 
 
@@ -14,15 +14,6 @@ import { useNavigate } from 'react-router-dom';
 export function Home() {
   const [notes, setNotes] = useState([]);
   const [search, setSearch] = useState('');
-  const navigate = useNavigate();
-
-
-  function handleDetails (id) {
-
-navigate(`/details/${id}`);
-
-  }
-  
 
 
   const fetchNotes = async (searchTerm = '') => {
@@ -32,24 +23,21 @@ navigate(`/details/${id}`);
     } catch (error) {
       console.error('Error fetching notes:', error);
     }
-  }; 
+  };
 
-
-  // useEffect para buscar as notas quando o componente monta ou search muda
   useEffect(() => {
     if (search.trim() === '') {
-      // Se search estiver vazio, busca todas as notas
       fetchNotes();
     } else {
-      // Se search não estiver vazio, busca com o filtro de search
       fetchNotes(search);
     }
-  }, [search]); // Executa sempre que search mudar 
+  }, [search]);
+
   
   return (
     <Container>
       
-      <Header />
+      <Header onSearchChange={setSearch} />
       <Content>
         <Brand>
   
@@ -60,13 +48,12 @@ navigate(`/details/${id}`);
         Adicionar filme
       </NewMovie>
         </Brand>
-        {
+        { 
         notes.map(note => (
-        <Note  
-        data={note}
-        key={String(note.id)}
-        onClick={() => handleDetails(note.id)}
-        />  
+          <Note 
+          to={`/details/${note.id}`} 
+          key={String (note.id)}
+          data={note} />
         ))
         }
       </Content>
