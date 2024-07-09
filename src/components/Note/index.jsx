@@ -1,7 +1,7 @@
 import { Container,Star } from './styles'
 import {Tag} from "../Tag"
 import { PiStarThin,PiStarFill } from "react-icons/pi";
-
+import PropTypes from 'prop-types';
 
 export function Note({data, ...rest}) {
   return(
@@ -19,4 +19,16 @@ export function Note({data, ...rest}) {
       }
     </Container>
   );
+}
+
+Note.propTypes = {
+  data: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired
+      })
+    )
+  }).isRequired,
 }

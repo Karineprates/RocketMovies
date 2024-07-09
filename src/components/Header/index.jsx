@@ -6,12 +6,13 @@ import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 import avatarPlaceHolder from '../../../assets/avatar_placeholder.svg'
 import { useState,useEffect } from "react";
+import PropTypes from 'prop-types';
 
 
 export function Header({ onSearchChange }) {
   const [search, setSearch] = useState('');
   const [tagsSelected] = useState('');
-  const [notes, setNotes] = useState([]);
+  const [setNotes] = useState([]);
   const { signOut, user } = useAuth();
   const navigation = useNavigate();
   const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceHolder;
@@ -80,3 +81,6 @@ export function Header({ onSearchChange }) {
     </Container>
   );
 }
+Header.propTypes = {
+  onSearchChange: PropTypes.func.isRequired
+};

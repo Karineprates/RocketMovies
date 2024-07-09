@@ -1,4 +1,5 @@
 import { Container } from "./styles";
+import PropTypes from 'prop-types';
 
 export function ButtonText({Icon,title,...rest}){
   return(
@@ -11,3 +12,7 @@ export function ButtonText({Icon,title,...rest}){
     </Container>
   );
 }
+ButtonText.propTypes = {
+  Icon: PropTypes.elementType, 
+  title: PropTypes.string.isRequired 
+};

@@ -1,4 +1,5 @@
 import { Container } from './styles';
+import PropTypes from 'prop-types';
 
 export function Textarea ({value, ...rest}) {
   return (
@@ -10,3 +11,7 @@ export function Textarea ({value, ...rest}) {
   )
 
 } 
+
+Textarea.propTypes = {
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+};

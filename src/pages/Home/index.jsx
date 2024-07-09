@@ -1,11 +1,10 @@
 import {Container, Content, Brand,NewMovie} from './styles'
-import { PiStarThin,PiStarFill } from "react-icons/pi";
 import { Header } from '../../components/Header'
 import { Note } from '../../components/Note'
 import { FiPlus } from 'react-icons/fi';
 import { useState, useEffect } from 'react';
 import { api } from '../../services/api';
-import { Input } from '../../components/Input';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -14,6 +13,14 @@ import { Input } from '../../components/Input';
 export function Home() {
   const [notes, setNotes] = useState([]);
   const [search, setSearch] = useState('');
+  const navigate = useNavigate();
+
+  
+  function handleDetails (id) {
+
+    navigate(`/details/${id}`);
+    
+      }
 
 
   const fetchNotes = async (searchTerm = '') => {
@@ -50,11 +57,12 @@ export function Home() {
         </Brand>
         { 
         notes.map(note => (
-          <Note 
-          to={`/details/${note.id}`} 
-          key={String (note.id)}
-          data={note} />
-        ))
+          <Note  
+          data={note}
+          key={String(note.id)}
+          onClick={() => handleDetails(note.id)}
+          />  
+          ))
         }
       </Content>
     </Container>
