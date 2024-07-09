@@ -8,7 +8,7 @@ background: none;
 color: ${({theme}) => theme.COLORS.ROSE};
 border: none;
 font-size: 16px;
-
+margin-bottom: 25px;
 
 svg {
   margin-right: 8px;

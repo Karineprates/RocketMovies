@@ -10,7 +10,7 @@ import { useState,useEffect } from "react";
 
 export function Header({ onSearchChange }) {
   const [search, setSearch] = useState('');
-  const [tagsSelected, setTagsSelected] = useState('');
+  const [tagsSelected] = useState('');
   const [notes, setNotes] = useState([]);
   const { signOut, user } = useAuth();
   const navigation = useNavigate();
